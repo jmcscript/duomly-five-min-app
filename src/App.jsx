@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -19,21 +20,28 @@ class App extends Component {
     const posts = this.state.posts;
 
     return (
-      <div className="container">
-        <div class="jumbotron">
-          <h1 class="display-4">Blog posts</h1>
-        </div>
-        {posts.map((post) => (
-          <div className="card" key={post.id}>
-            <div className="card-header">
-              <strong>ID:</strong> #{post.id} | <strong>Title:</strong> {post.title}
-            </div>
-            <div className="card-body">
-              <p className="card-text">{post.body}</p>
+      <>
+        <div className='container'>
+          <div className='jumbotron'>
+            <h1>Sample Posts</h1>
+          </div>
+          <div className='container'>
+            <div className='row'>
+              {posts.map((post) => (
+                <div className='col-md-4 gy-3'>
+                  <div className='card'>
+                    <div className='card-header'>#{post.id}</div>
+                    <div className='card-body'>
+                      <h5 className='card-title'>{post.title}</h5>
+                      <p className='card-text'>{post.body}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </>
     );
   }
 }
