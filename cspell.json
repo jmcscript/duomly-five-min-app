@@ -1,7 +1,12 @@
 {
     "version": "0.2",
     "ignorePaths": [
-        "**.gitignore"
+        "**.gitignore",
+        "**.vscode",
+        "**/node_modules",
+        "**/dist",
+        "**/public",
+        "**/*.css"
     ],
     "dictionaryDefinitions": [],
     "dictionaries": [],
