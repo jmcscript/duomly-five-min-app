@@ -1,14 +1,30 @@
-// import { useState } from 'react';
+import { Component } from 'react';
 
-function App() {
-  // const [count, setCount] = useState(0);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+    };
+  }
 
-  return (
-    <>
-      <h1>Duomly 5-Min React App</h1>
-      <p>Can we start this thing already?</p>
-    </>
-  );
+  componentDidMount() {
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => this.setState({ posts: json }));
+  }
+
+  render() {
+    const posts = this.state.posts;
+
+    return (
+      <>
+        <h1>Duomly 5-Min React App</h1>
+        <p>We have {posts.length} posts</p>
+      </>
+    );
+  }
 }
 
 export default App;
